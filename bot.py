@@ -26,26 +26,26 @@ client = tweepy.Client(
 )
 
 response = getData()
-list_games = response[0]
-more_games = response[1]
-even_more_deals = response[2]
+title = response[0]
+list_games = response[1]
+more_games = response[2]
 
-if len(list_games) <= 280 and len(more_games) <= 280 and len(even_more_deals) <= 280:
+if len(title) <= 280 and len(list_games) <= 280 and len(more_games) <= 280:
     try:
-        tweet = client.create_tweet(text=list_games)
-        print(tweet.data['text'])
+        tweet = api.update_status_with_media(status=title, filename='loja.png')
+        print(tweet.text)
 
-        sleep(10)
+        sleep(5)
 
-        client.create_tweet(in_reply_to_tweet_id=tweet.data['id'], text=more_games)
+        api.update_status(in_reply_to_status_id=tweet.id, status=list_games)
 
-        sleep(10)
+        sleep(5)
 
-        client.create_tweet(in_reply_to_tweet_id=tweet.data['id'], text=even_more_deals)
+        api.update_status(in_reply_to_status_id=tweet.id, status=more_games)
     except Exception as error:
         print(error)
 else:
-    print(f"tweet longo, possuí {len(list_games)} caracteres e sua resposta {len(more_games)} e {len(even_more_deals)}")
+    print(f"tweet longo, possuí {len(title)} caracteres e suas respostas {len(list_games)} e {len(more_games)}")
     
 
 

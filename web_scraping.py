@@ -23,25 +23,25 @@ def getData():
         list_titles.append(i.text + ":" f" {list_prices[j]}")
         j += 1
 
-    psn_deals = ("Novas ofertas na psn store:\n\n"
-    f"{list_titles[0]}\n"
-    f"{list_titles[2]}\n"
-    f"{list_titles[4]}\n"
-    "https://store.playstation.com/pt-br/pages/deals")
+    tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals")
 
-    more_deals = (
+    psn_deals = (
+        f"{list_titles[0]}\n"
+        f"{list_titles[2]}\n"
+        f"{list_titles[4]}\n"
         f"{list_titles[6]}\n"
         f"{list_titles[8]}\n"
-        f"{list_titles[10]}\n"
-        f"{list_titles[12]}"
-        f"{list_titles[14]}\n"
     )
 
-    even_more_deals = (
+    more_deals = (
+        f"{list_titles[10]}\n"
+        f"{list_titles[12]}\n"
+        f"{list_titles[14]}\n"
         f"{list_titles[16]}\n"
         f"{list_titles[18]}\n"
         f"{list_titles[20]}\n"
         f"{list_titles[21]}"
     )
 
-    return(psn_deals, more_deals, even_more_deals)
+    return(tweet_title, psn_deals ,more_deals)
+
