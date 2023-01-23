@@ -18,12 +18,10 @@ def getData():
     for i in prices:
         list_prices.append(i.text)
 
-    j = 0
     for i in titles:
-        list_titles.append(i.text + ":" f" {list_prices[j]}")
-        j += 1
+        list_titles.append(i.text + ":" f" {list_prices[titles.index(i)]}")
 
-    tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals")
+    tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals\n")
 
     psn_deals = (
         f"{list_titles[0]}\n"
@@ -44,4 +42,3 @@ def getData():
     )
 
     return(tweet_title, psn_deals ,more_deals)
-
