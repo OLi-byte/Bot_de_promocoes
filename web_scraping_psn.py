@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-def getData():
+def getPsnData():
     url = 'https://store.playstation.com/pt-br/category/35027334-375e-423b-b500-0d4d85eff784/1'
 
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'}
@@ -24,20 +24,20 @@ def getData():
     tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals\n")
 
     psn_deals = (
-        f"{list_titles[0]}\n"
-        f"{list_titles[2]}\n"
-        f"{list_titles[4]}\n"
-        f"{list_titles[6]}\n"
-        f"{list_titles[8]}\n"
+        f"{list_titles[0]}\n\n"
+        f"{list_titles[2]}\n\n"
+        f"{list_titles[4]}\n\n"
+        f"{list_titles[6]}\n\n"
+        f"{list_titles[8]}\n\n"
     )
 
     more_deals = (
-        f"{list_titles[10]}\n"
-        f"{list_titles[12]}\n"
-        f"{list_titles[14]}\n"
-        f"{list_titles[16]}\n"
-        f"{list_titles[18]}\n"
-        f"{list_titles[20]}\n"
+        f"{list_titles[10]}\n\n"
+        f"{list_titles[12]}\n\n"
+        f"{list_titles[14]}\n\n"
+        f"{list_titles[16]}\n\n"
+        f"{list_titles[18]}\n\n"
+        f"{list_titles[20]}\n\n"
         f"{list_titles[21]}"
     )
 
