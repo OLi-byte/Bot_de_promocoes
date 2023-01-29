@@ -35,6 +35,7 @@ def main():
     steam_response = getSteamData()
     steam_title = steam_response[0]
     steam_list_games = steam_response[1]
+    steam_more_games = steam_response[2]
 
     if len(psn_title) <= 280 and len(psn_list_games) <= 280 and len(psn_more_games) <= 280:
         try:
@@ -43,11 +44,11 @@ def main():
 
             sleep(5)
 
-            api.update_status(in_reply_to_status_id=tweet.id, status=psn_list_games)
+            tweet_reply = api.update_status(in_reply_to_status_id=tweet.id, status=psn_list_games)
 
             sleep(5)
 
-            api.update_status(in_reply_to_status_id=tweet.id, status=psn_more_games)
+            api.update_status(in_reply_to_status_id=tweet_reply.id, status=psn_more_games)
         except Exception as error:
             print(error)
     else:
@@ -60,7 +61,11 @@ def main():
 
             sleep(5)
 
-            api.update_status(in_reply_to_status_id=tweet.id, status=steam_list_games)
+            tweet_reply = api.update_status(in_reply_to_status_id=tweet.id, status=steam_list_games)
+
+            sleep(5)
+            
+            api.update_status(in_reply_to_status_id=tweet_reply.id, status=steam_more_games)
         except Exception as error:
             print(error)
     else:

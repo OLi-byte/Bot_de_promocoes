@@ -34,4 +34,16 @@ def getSteamData():
         f"{list_titles[6]}"
     )
 
-    return(tweet_title, steam_deals)
+    more_deals = (
+        f"{list_titles[7]}\n\n"
+        f"{list_titles[8]}\n\n"
+        f"{list_titles[9]}\n\n"
+        f"{list_titles[10]}\n\n"
+        f"{list_titles[11]}\n\n"
+        f"{list_titles[12]}\n\n"
+        f"{list_titles[13]}\n\n"
+        f"{list_titles[14]}\n\n"
+        f"{list_titles[15]}"
+    )
+
+    return(tweet_title, steam_deals, more_deals)

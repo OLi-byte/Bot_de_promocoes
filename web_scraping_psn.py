@@ -21,14 +21,14 @@ def getPsnData():
     for i in titles:
         list_titles.append(i.text + ":" f" {list_prices[titles.index(i)]}")
 
-    tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals\n")
+    tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals")
 
     psn_deals = (
         f"{list_titles[0]}\n\n"
         f"{list_titles[2]}\n\n"
         f"{list_titles[4]}\n\n"
         f"{list_titles[6]}\n\n"
-        f"{list_titles[8]}\n\n"
+        f"{list_titles[8]}"
     )
 
     more_deals = (
@@ -41,4 +41,4 @@ def getPsnData():
         f"{list_titles[21]}"
     )
 
-    return(tweet_title, psn_deals ,more_deals)
+    return(tweet_title, psn_deals, more_deals)
