@@ -36,9 +36,7 @@ def getPsnData():
         f"{list_titles[12]}\n\n"
         f"{list_titles[14]}\n\n"
         f"{list_titles[16]}\n\n"
-        f"{list_titles[18]}\n\n"
-        f"{list_titles[20]}\n\n"
-        f"{list_titles[21]}"
+        f"{list_titles[18]}"
     )
 
     return(tweet_title, psn_deals, more_deals)

@@ -39,7 +39,7 @@ def main():
 
     if len(psn_title) <= 280 and len(psn_list_games) <= 280 and len(psn_more_games) <= 280:
         try:
-            tweet = api.update_status_with_media(status=psn_title, filename='psn_ofertas.png')
+            tweet = api.update_status_with_media(status=psn_title, filename='images\psn_ofertas.png')
             print(tweet.text)
 
             sleep(5)
@@ -54,9 +54,9 @@ def main():
     else:
         print(f"tweet longo, possuí {len(psn_title)} caracteres e suas respostas {len(psn_list_games)} e {len(psn_more_games)}")
 
-    if len(steam_title) <= 280 and len(steam_list_games) <= 280:
+    if len(steam_title) <= 280 and len(steam_list_games) <= 280 and len(steam_more_games) <= 280:
         try:
-            tweet = api.update_status_with_media(status=steam_title, filename='steam_ofertas.jpg')
+            tweet = api.update_status_with_media(status=steam_title, filename='images\steam_ofertas.jpg')
             print(tweet.text)
 
             sleep(5)
@@ -69,7 +69,7 @@ def main():
         except Exception as error:
             print(error)
     else:
-        print(f"Tweet longo, possuí {len(steam_list_games)} caracteres.")
+        print(f"Tweet longo, possuí {len(steam_list_games)} caracteres e {len(steam_more_games)}")
 
 
 if __name__ == "__main__":
