@@ -9,8 +9,8 @@ def getPsnData():
 
     site = requests.get(url, headers=headers)
     soup = BeautifulSoup(site.content, 'html.parser')
-    titles = soup.find_all('span', class_=re.compile("psw-t-body"))
-    prices = soup.find_all('span', class_=re.compile("psw-m-r-3"))
+    titles = soup.find_all('span', class_=re.compile("psw-t-body"), limit=19)
+    prices = soup.find_all('span', class_=re.compile("psw-m-r-3"), limit=19)
 
     list_titles = []
     list_prices = []
@@ -19,27 +19,18 @@ def getPsnData():
         list_prices.append(i.text)
 
     for i in titles:
-        list_titles.append(i.text + ":" f" {list_prices[titles.index(i)]}")
+        if titles.index(i) % 2 == 0 :
+            list_titles.append(i.text + ":" f" {list_prices[titles.index(i)]}")
 
+            
     tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals")
 
-    psn_deals = (
-        f"{list_titles[0]}\n\n"
-        f"{list_titles[2]}\n\n"
-        f"{list_titles[4]}\n\n"
-        f"{list_titles[6]}\n\n"
-        f"{list_titles[8]}"
-    )
+    psn_deals = "\n\n".join(list_titles[:5])
 
-    more_deals = (
-        f"{list_titles[10]}\n\n"
-        f"{list_titles[12]}\n\n"
-        f"{list_titles[14]}\n\n"
-        f"{list_titles[16]}\n\n"
-        f"{list_titles[18]}"
-    )
+    more_deals = "\n\n".join(list_titles[5:])
 
     return(tweet_title, psn_deals, more_deals)
+
 
 def getSteamData():
     url = "https://store.steampowered.com/search/?specials=1"
@@ -48,8 +39,8 @@ def getSteamData():
 
     site = requests.get(url, headers=headers)
     soup = BeautifulSoup(site.content, 'html.parser')
-    titles = soup.find_all('span', class_="title", limit=20)
-    prices = soup.find_all('div', class_=re.compile("search_price discounted"), limit=20)
+    titles = soup.find_all('span', class_="title", limit=13)
+    prices = soup.find_all('div', class_=re.compile("search_price discounted"), limit=13)
 
     list_prices = []
     list_titles = []
@@ -63,23 +54,8 @@ def getSteamData():
 
     tweet_title = "Novas ofertas na Steam: https://store.steampowered.com/search/?specials=1"
 
-    steam_deals = (
-        f"{list_titles[0]}\n\n"
-        f"{list_titles[1]}\n\n"
-        f"{list_titles[2]}\n\n"
-        f"{list_titles[3]}\n\n"
-        f"{list_titles[4]}\n\n"
-        f"{list_titles[5]}\n\n"
-        f"{list_titles[6]}"
-    )
+    steam_deals = "\n\n".join(list_titles[:7])
 
-    more_deals = (
-        f"{list_titles[7]}\n\n"
-        f"{list_titles[8]}\n\n"
-        f"{list_titles[9]}\n\n"
-        f"{list_titles[10]}\n\n"
-        f"{list_titles[11]}\n\n"
-        f"{list_titles[12]}"
-    )
+    more_deals = "\n\n".join(list_titles[7:])
 
     return(tweet_title, steam_deals, more_deals)
