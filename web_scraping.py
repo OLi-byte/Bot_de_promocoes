@@ -20,7 +20,7 @@ def getPsnData():
 
     for i in titles:
         if titles.index(i) % 2 == 0 :
-            list_titles.append(i.text + ":" f" {list_prices[titles.index(i)]}")
+            list_titles.append("-> " + i.text + ":" f" {list_prices[titles.index(i)]}")
 
             
     tweet_title = ("Novas ofertas na psn store: https://store.playstation.com/pt-br/pages/deals")
@@ -50,7 +50,7 @@ def getSteamData():
         list_prices.append(price[2])
 
     for i in titles:
-        list_titles.append(i.text + ":" f" R${list_prices[titles.index(i)]}")
+        list_titles.append("-> " + i.text + ":" f" R${list_prices[titles.index(i)]}")
 
     tweet_title = "Novas ofertas na Steam: https://store.steampowered.com/search/?specials=1"
 
